@@ -129,5 +129,5 @@ callbacks_list = [checkpoint, reduce_on_plateau]
 model = baseline_model()
 #model.load_weights(file_path)
 model.fit_generator(gen(train, train_person_to_images_map, batch_size=16), use_multiprocessing=True,
-                    validation_data=gen(val, val_person_to_images_map, batch_size=16), epochs=2000, verbose=2,
+                    validation_data=gen(val, val_person_to_images_map, batch_size=16), epochs=100, verbose=2,
                     workers=4, callbacks=callbacks_list, steps_per_epoch=200, validation_steps=100)
