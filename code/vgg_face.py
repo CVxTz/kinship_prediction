@@ -131,3 +131,27 @@ model = baseline_model()
 model.fit_generator(gen(train, train_person_to_images_map, batch_size=16), use_multiprocessing=True,
                     validation_data=gen(val, val_person_to_images_map, batch_size=16), epochs=100, verbose=2,
                     workers=4, callbacks=callbacks_list, steps_per_epoch=200, validation_steps=100)
+
+test_path = "../input/test/"
+
+def chunker(seq, size=32):
+    return (seq[pos:pos + size] for pos in range(0, len(seq), size))
+from tqdm import tqdm
+submission = pd.read_csv('../input/sample_submission.csv')
+
+predictions = []
+
+for batch in tqdm(chunker(submission.img_pair.values)):
+    X1 = [x.split("-")[0] for x in batch]
+    X1 = np.array([read_img(test_path+x) for x in X1])
+
+    X2 = [x.split("-")[1] for x in batch]
+    X2 = np.array([read_img(test_path+x) for x in X2])
+
+    pred = model.predict([X1, X2]).ravel().tolist()
+    predictions += pred
+
+submission['is_related'] = predictions
+
+submission.to_csv("vgg_face.csv", index=False)
+
