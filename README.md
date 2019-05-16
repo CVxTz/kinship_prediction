@@ -2,7 +2,7 @@
 
 Requirements :
 
-Keras
+Keras 2
 
 keras_vggface
 
