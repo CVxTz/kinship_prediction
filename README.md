@@ -1,5 +1,7 @@
 # Deep Neural Networks for Kinship prediction using face photos
 
+Code for : https://towardsdatascience.com/deep-neural-networks-for-kinship-prediction-using-face-photos-f2ad9ab53834
+
 ### Requirements :
 
 Keras 2
