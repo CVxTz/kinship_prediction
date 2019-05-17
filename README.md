@@ -35,7 +35,9 @@ biggest scale data set of its kind where face photos are grouped by person and
 then people are grouped by family.
 
 ![](https://cdn-images-1.medium.com/max/1600/1*am4xEqhFkLlgiu7JC9CrWw.png)
+
 <span class="figcaption_hack">Image organization in the FIW dataset</span>
+
 
 Other than the image folders we also have a file that lists all the cases where
 two people from a family are blood related, which is not the case for all
@@ -48,6 +50,7 @@ In order to solve this task we will use a Siamese network that takes a pair of
 images and predict 1 if the people in the photos are related and 0 otherwise.
 
 ![](https://cdn-images-1.medium.com/max/1600/1*8h3JpmmLLjeDFUHJYGCl0Q.png)
+
 <span class="figcaption_hack">Siamese Network</span>
 
 The image encoder is applied to each input image and encodes each of them into a
@@ -56,6 +59,7 @@ are fed into a fully connected layer which then predicts a binary label of
 kinship.
 
 ![](https://cdn-images-1.medium.com/max/1600/1*YEt68fg0lmm01CWqR6BO1A.png)
+
 <span class="figcaption_hack">Example of input/output</span>
 
 #### Transfer Learning :
@@ -83,14 +87,17 @@ We will use the accuracy and AUC Score to evaluate the results of each model.
 Resnet50 Imagenet test ROC AUC : **0.70**
 
 ![](https://cdn-images-1.medium.com/max/1600/1*XzBsM43ttD4px7d-iIx0Yg.png)
+
 <span class="figcaption_hack">Evaluation on the test set through kaggle submission</span>
 
 Resnet50 VGGFACE2 test ROC AUC : **0.81**
 
 ![](https://cdn-images-1.medium.com/max/1600/1*k1sZBMiXcwP6zsKUWKgDag.png)
+
 <span class="figcaption_hack">Evaluation on the test set through kaggle submission</span>
 
 ![](https://cdn-images-1.medium.com/max/1600/1*KCpJNyyraN1gyF4H1IfhkA.png)
+
 <span class="figcaption_hack">Validation Accuracy Comparison</span>
 
 We can see that even the architecture in the two different settings is the same
